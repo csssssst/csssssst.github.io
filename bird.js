@@ -37,16 +37,16 @@ FlappyBird.prototype = {
 	obs: null, // 障碍物
 	obsList: [],
 
-	mapWidth: 340, // 画布宽度
-	mapHeight: 453, // 画布高度
+	mapWidth: 510, // 画布宽度
+	mapHeight: 750, // 画布高度
 	startX: 90, // 起始位置  
 	startY: 225,
-	obsDistance: 100, // 上下障碍物距离  
+	obsDistance: 160, // 上下障碍物距离  
 	obsSpeed: 2, // 障碍物移动速度  
 	obsInterval: 2000, // 制造障碍物间隔ms  
 	upSpeed: 8, // 上升速度  
-	downSpeed: 3, // 下降速度  
-	line: 56, // 地面高度
+	downSpeed: 4, // 下降速度  
+	line: 0, // 地面高度
 	score: 0, // 得分  
 	touch: false, // 是否触摸
 	gameOver: false,
@@ -55,7 +55,7 @@ FlappyBird.prototype = {
 		this.bg = new Image();
 		this.bg.src = "img/bg.png";
 		var startBg = new Image();
-		startBg.src = "img/start.jpg";
+		startBg.src = "img/start.png";
 		// 由于Image异步加载, 在加载完成时在绘制图像
 		startBg.onload = function(){
 			c.drawImage(startBg, 0, 0);
@@ -95,7 +95,7 @@ FlappyBird.prototype = {
 			this.obsList.splice(0, 2);
 	},
 	DrawObs: function() { //绘制障碍物 
-		c.fillStyle = "#00ff00";
+		c.fillStyle = "#00ffff";
 		for (var i = 0; i < this.obsList.length; i++) {
 			this.obsList[i].x -= this.obsSpeed;
 			if (i % 2)
